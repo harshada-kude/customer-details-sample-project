@@ -1,0 +1,30 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers | paginate: { itemsPerPage: count, currentPage: p }">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.age }}</td>
+            <td><a href="mailto:{{ customer.email }}">{{ customer.email }}</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!--<button type="submit" (click)="fetchdata()">New Button</button> -->
+    </div>
+  </div>
+
+     <!--Including the pagination control.-->
+     <div class="text-center">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    
+  
